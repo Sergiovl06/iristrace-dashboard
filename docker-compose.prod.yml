@@ -1,6 +1,6 @@
 services:
   dashboard:
-    image: registry.gitlab.iristrace.com/platform/monitor:latest
+    image: hub.iristrace.com/iristrace/monitor:latest
     container_name: iristrace-dashboard
     restart: unless-stopped
     ports:
