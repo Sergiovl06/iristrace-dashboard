@@ -1,0 +1,35 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE: registry.gitlab.iristrace.com/platform/monitor:$CI_COMMIT_REF_SLUG
+  IMAGE_LATEST: registry.gitlab.iristrace.com/platform/monitor:latest
+
+build:
+  stage: build
+  image: docker:27
+  services:
+    - docker:27-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $IMAGE -t $IMAGE_LATEST .
+    - docker push $IMAGE
+    - docker push $IMAGE_LATEST
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: docker:27
+  services:
+    - docker:27-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $IMAGE_LATEST
+    - docker compose -f docker-compose.prod.yml down || true
+    - docker compose -f docker-compose.prod.yml up -d
+  only:
+    - main
