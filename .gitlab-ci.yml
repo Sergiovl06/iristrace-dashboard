@@ -1,55 +1,68 @@
 stages:
-  - package
+  - build
   - deploy
 
 variables:
+  # Imagen corregida para tu repositorio de monitor
+  DOCKER_IMAGE: hub.iristrace.com/iristrace/monitor:$CI_PIPELINE_ID
+  DOCKER_IMAGE_LATEST: hub.iristrace.com/iristrace/monitor:latest
   DEPLOYMENT_TOOLS_IMAGE: iristrace/deployment-tools:20440
-  IMAGE_REPO: "hub.iristrace.com/iristrace/monitor"
 
-package:image:
-  stage: package
-  image: docker:24-dind
+# ── Build ─────────────────────────────────────────────────────────────────────
+
+create-docker-image:
+  stage: build
+  image: docker:27
   services:
-    - docker:24-dind
-  script:
+    - docker:27-dind
+  before_script:
     - docker login -u $HUB_USER -p $HUB_PASSWORD hub.iristrace.com
-    - |
-      docker build \
-        -t $IMAGE_REPO:$CI_PIPELINE_ID \
-        -t $IMAGE_REPO:latest \
-        .
-    - docker push $IMAGE_REPO:$CI_PIPELINE_ID
-    - docker push $IMAGE_REPO:latest
+  script:
+    # Build basado en tu Dockerfile 
+    - docker build -t $DOCKER_IMAGE -t $DOCKER_IMAGE_LATEST .
+    - docker push $DOCKER_IMAGE
+    - docker push $DOCKER_IMAGE_LATEST
   only:
     - main
+    - tags
+
+# ── Deploy ────────────────────────────────────────────────────────────────────
 
 .deployment_script: &deployment-script
   image: hub.iristrace.com/$DEPLOYMENT_TOOLS_IMAGE
+  needs:
+    - job: create-docker-image
   before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh ./deploy
+    - chmod 700 ~/.ssh
     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
     - ssh-keyscan gitlab.iristrace.com >> ~/.ssh/known_hosts
+    - echo "$ANSIBLE_VAULT_PASSWORD" | tr -d '\r' > ~/.vault-password
     - chmod 644 ~/.ssh/known_hosts
   script:
     - cd ./deploy
-    - ansible-playbook
-        --extra-vars="swarm=$SWARM env=$ENV ci_pipeline_id=$CI_PIPELINE_ID hub_user=$HUB_USER hub_password=$HUB_PASSWORD"
-        monitor.yml
-        --limit $SWARM
+    - ansible-playbook --vault-password-file=~/.vault-password
+        --extra-vars="swarm=$SWARM ci_pipeline_id=$CI_PIPELINE_ID hub_user=$HUB_USER hub_password=$HUB_PASSWORD"
+        monitor.yml --limit $SWARM
 
 .deploy: &deploy
   stage: deploy
   <<: *deployment-script
-
-monitor-to-prd:
-  <<: *deploy
-  variables:
-    ENV: "prd"
-    STACK: "sergio"
-    SWARM: "swarm-g007"
-  when: manual
   only:
     - main
+    - tags
+
+# Ejemplo de despliegue en un nodo de gestión (ajusta el SWARM según necesites)
+monitor-to-swarm010:
+  <<: *deploy
+  variables:
+    SWARM: "swarm010"
+  when: manual
+
+monitor-to-swarm-g033:
+  <<: *deploy
+  variables:
+    SWARM: "swarm-g033"
+  when: manual
