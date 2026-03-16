@@ -1,0 +1,23 @@
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iristrace-dashboard
+    restart: unless-stopped
+    ports:
+      - "${PORT}:80"
+    volumes:
+      - ./apis:/app/apis:ro
+      - ./nifis:/app/nifis:ro
+      - ./logo.png:/app/logo.png:ro
+      - ./Dashboard.sh:/app/Dashboard.sh:ro
+    environment:
+      - REFRESH_INTERVAL=${REFRESH_INTERVAL}
+      - TZ=${TZ}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

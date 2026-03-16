@@ -1,0 +1,5 @@
+dashboard.html
+*.log
+.git
+.gitignore
+README.md

@@ -1,0 +1,842 @@
+aenor-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "aenor"
+    SWARM: "swarm009"
+  when: manual
+
+abg-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "abg"
+    SWARM: "swarm008"
+  when: manual
+
+abg-log-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "abg-log"
+    SWARM: "swarm008"
+  when: manual  
+
+cidet-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "cidet"
+    SWARM: "swarm008"
+  when: manual
+
+coremt-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "coremt"
+    SWARM: "swarm010"
+  when: manual
+
+coremt-to-prd-vps:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "coremt"
+    SWARM: "vps_eu_g033"
+  when: manual
+
+hospitality-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "hospitality"
+    SWARM: "swarm010"
+  when: manual
+
+
+gittis-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "gittis"
+    SWARM: "swarm010"
+  when: manual
+
+gittis-to-prd-vps:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "gittis"
+    SWARM: "vps_eu_g033"
+  when: manual
+
+#inlea-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "inlea"
+#    SWARM: "swarm008"
+
+eroski-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "eroski"
+    SWARM: "swarm004"
+  when: manual
+
+parfois-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "parfois"
+    SWARM: "vps_eu_g033"
+  when: manual
+
+
+ventadecolchones-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "ventadecolchones"
+    SWARM: "swarm008"
+  when: manual
+
+pikolinos-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "pikolinos"
+    SWARM: "swarm009"
+  when: manual
+
+dacsa-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "dacsa"
+    SWARM: "swarm009"
+  when: manual
+
+#psmar-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "psmar"
+#    SWARM: "swarm008"
+
+px-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "px"
+    SWARM: "swarm010"
+  when: manual
+
+proporseg-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "proporseg"
+    SWARM: "swarm-f012"
+  when: manual
+
+
+demo-01-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-01"
+    SWARM: "swarm010"
+  when: manual
+
+demo-02-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-02"
+    SWARM: "swarm010"
+  when: manual
+
+demo-03-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-03"
+    SWARM: "swarm010"
+  when: manual
+
+
+
+#retail-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "retail"
+#    SWARM: "swarm011"
+
+#roca-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "roca"
+#    SWARM: "swarm011"
+
+#roommate-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "roommate"
+#    SWARM: "swarm010"
+#  when: manual
+
+#t-mobile-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "t-mobile"
+#    SWARM: "swarm-d008"
+#  when: manual
+
+#grc-t-mobile-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "grc-t-mobile"
+#    SWARM: "swarm-d008"
+#  when: manual
+
+#hq-t-mobile-to-prd:
+#  <<: *deploy-to-prd
+#  variables:
+#    ENV: "prd"
+#    STACK: "hq-t-mobile"
+#    SWARM: "swarm-d008"
+#  when: manual
+
+
+ci-crf-to-acc:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "acc"
+    STACK: "ci-crf"
+    SWARM: "swarm-f014"
+    VPS_SWARM: "false"
+  when: manual
+
+ci-crf-final-to-acc:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "acc"
+    STACK: "ci-crf-final"
+    SWARM: "swarm-f014"
+    VPS_SWARM: "false"
+  when: manual
+
+formacion-crf-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "formacion-crf"
+    SWARM: "swarm-f014"
+    VPS_SWARM: "false"
+  when: manual
+
+odido-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+  when: manual
+
+grc-odido-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "grc-odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+  when: manual
+
+hq-odido-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "hq-odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+  when: manual
+
+super-crf-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "super-crf"
+    SWARM: "swarm-f014"
+  when: manual
+
+tickets-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "tickets"
+    SWARM: "swarm010"
+  when: manual
+
+reporting-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "reporting"
+    SWARM: "swarm-f012"
+  when: manual
+
+
+### vps-eu-g004
+
+mbs-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "mbs"
+    SWARM: "swarm-g004"
+  when: manual
+
+
+### vps-eu-g006
+
+meta360-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "meta360"
+    SWARM: "swarm-g006"
+  when: manual
+
+cultivosaraba-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "cultivosaraba"
+    SWARM: "swarm-g006"
+  when: manual
+
+rijkzwaan-es-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "rijkzwaan-es"
+    SWARM: "swarm-g006"
+  when: manual
+
+nobuhotels-es-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "nobuhotels"
+    SWARM: "swarm-g006"
+  when: manual
+### vps-eu-g008
+
+chemco-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "chemco"
+    SWARM: "swarm-g008"
+  when: manual
+
+lacasadelascarcasas-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "lacasadelascarcasas"
+    SWARM: "swarm-g008"
+  when: manual
+
+docfactory-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "docfactory"
+    SWARM: "swarm-g008"
+  when: manual
+
+
+### vps-eu-g009
+
+kemler-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "kemler"
+    SWARM: "swarm-g009"
+  when: manual
+
+galvexsa-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "galvexsa"
+    SWARM: "swarm-g009"
+  when: manual
+
+
+### vps-eu-g010
+
+alquimiaintegral-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "alquimiaintegral"
+    SWARM: "swarm-g010"
+  when: manual
+
+alfran-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "alfran"
+    SWARM: "swarm-g010"
+  when: manual
+
+
+
+
+### vps-eu-g011
+
+
+axarfruit-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "axarfruit"
+    SWARM: "swarm-g011"
+  when: manual
+
+
+### vps-eu-g012
+
+suavinex-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "suavinex"
+    SWARM: "swarm-g012"
+  when: manual
+
+biorizon-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "biorizon"
+    SWARM: "swarm-g012"
+  when: manual
+### vps-eu-g013
+
+grupopepe-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "grupopepe"
+    SWARM: "swarm-g013"
+  when: manual
+
+
+
+### vps-eu-g014
+
+
+
+panet-vps-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "panet"
+    SWARM: "swarm-g014"
+  when: manual
+
+epk-vps-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "epk"
+    SWARM: "swarm-g014"
+  when: manual
+
+
+### vps-eu-g017
+
+creaprint-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "creaprint"
+    SWARM: "swarm-g017"
+  when: manual
+
+omnilife-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "omnilife"
+    SWARM: "swarm-g017"
+  when: manual
+
+
+### vps-eu-g018
+
+torreoria-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "torreoria"
+    SWARM: "swarm-g018"
+  when: manual
+
+fichajes-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "fichajes"
+    SWARM: "swarm-g018"
+  when: manual
+
+demo-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo"
+    SWARM: "swarm-g018"
+  when: manual
+
+montiel-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "montiel"
+    SWARM: "swarm-g018"
+  when: manual
+
+
+ld-aromaticos-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "ld-aromaticos"
+    SWARM: "swarm-g018"
+  when: manual
+
+### vps-eu-g019
+
+udg-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "udg"
+    SWARM: "swarm-g019"
+  when: manual
+
+marcimex-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "marcimex"
+    SWARM: "swarm-g019"
+  when: manual
+
+alimentosprosalud-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "alimentosprosalud"
+    SWARM: "swarm-g019"
+  when: manual
+
+pozuelo-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "pozuelo"
+    SWARM: "swarm-g019"
+  when: manual
+
+sylvanfoods-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "sylvanfoods"
+    SWARM: "swarm-g019"
+  when: manual
+
+greensuperfood-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "greensuperfood"
+    SWARM: "swarm-g019"
+  when: manual
+
+### vps-eu-g020
+
+tempsdeinterior-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "tempsdeinterior"
+    SWARM: "swarm-g020"
+  when: manual
+
+cualin-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "cualin"
+    SWARM: "swarm-g020"
+  when: manual
+
+ceva-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "ceva"
+    SWARM: "swarm-g020"
+  when: manual
+
+polar-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "polar"
+    SWARM: "swarm-g020"
+  when: manual
+
+phg-vps-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "phg"
+    SWARM: "swarm-g020"
+  when: manual
+
+tintasgreis-vps-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "tintasgreis"
+    SWARM: "swarm-g020"
+  when: manual
+
+
+### vps-eu-g021
+
+faccsa-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "faccsa"
+    SWARM: "swarm-g021"
+  when: manual
+
+vitro-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "vitro"
+    SWARM: "swarm-g021"
+  when: manual
+
+phglatam-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "phglatam"
+    SWARM: "swarm-g021"
+  when: manual
+
+  ### vps-eu-g023
+
+thesamplingsolutions-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "thesamplingsolutions"
+    SWARM: "swarm-g023"
+  when: manual
+
+### vps-eu-g024
+
+berete-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "berete"
+    SWARM: "swarm-g024"
+  when: manual
+
+naturinda-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "naturinda"
+    SWARM: "swarm-g024"
+  when: manual
+
+gbcorporacion-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "gbcorporacion"
+    SWARM: "swarm-g024"
+  when: manual
+
+panamericana-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "panamericana"
+    SWARM: "swarm-g024"
+  when: manual
+
+### vps-eu-g025.iristrace.com
+amspec-ma-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "amspec-ma"
+    SWARM: "swarm-g025"
+  when: manual
+  
+### vps-eu-g026.iristrace.com
+
+vps-abg-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "abg"
+    SWARM: "swarm-g026"
+  when: manual
+
+vps-abg-log-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "abg-log"
+    SWARM: "swarm-g026"
+  when: manual
+
+### vps-eu-g027.iristrace.com
+
+vps-aenor-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "aenor"
+    SWARM: "swarm-g027"
+  when: manual
+
+vps-dacsa-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "dacsa"
+    SWARM: "swarm-g027"
+  when: manual
+
+vps-pikolinos-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "pikolinos"
+    SWARM: "swarm-g027"
+  when: manual
+
+
+
+vps-transava-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "transava"
+    SWARM: "swarm-g027"
+  when: manual
+
+### vps-eu-g028.iristrace.com
+
+vps-elpastor-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "elpastor"
+    SWARM: "swarm-g028"
+  when: manual
+
+
+repsol-aenor-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "repsol-aenor"
+    SWARM: "swarm-g028"
+  when: manual
+
+
+### vps-eu-g030.iristrace.com
+
+vps-grupopepe-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "grupopepe"
+    SWARM: "swarm-g030"
+  when: manual
+
+### vps-eu-g004.iristrace.com
+
+
+
+### vps-eu-g007.iristrace.com
+
+vps-eu-g007-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "vps-eu-g007"
+    SWARM: "swarm-g007"
+  when: manual
+
+sergio-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "sergio"
+    SWARM: "swarm-g007"
+  when: manual
+
+
+acc-ai-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "acc"
+    STACK: "ai"
+    SWARM: "swarm-g007"
+  when: manual
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

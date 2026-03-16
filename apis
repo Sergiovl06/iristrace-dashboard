@@ -1,0 +1,1796 @@
+odido-to-acc:
+  <<: *deploy-to-acc
+  variables:
+    ENV: "acc"
+    STACK: "odido"
+    SWARM: "swarm-d008"
+    DATABASE_ENGINE: "mariadb"
+  when: manual
+
+### p-eu-f012 stacks
+
+
+
+px-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "px"
+    SWARM: "swarm010"
+    DATABASE_ENGINE: "mariadb"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+tickets-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "tickets"
+    SWARM: "swarm010"
+    DATABASE_ENGINE: "mariadb"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+tickets-crj-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "-crj"
+    SWARM: "swarm010"
+    DATABASE_ENGINE: "mariadb"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+## p-eu-f013 stacks
+
+odido-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+hq-odido-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "hq-odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+grc-odido-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "grc-odido"
+    SWARM: "swarm-f013"
+    VPS_SWARM: "false"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+## p-eu-f014 stacks
+
+super-crf-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "super-crf"
+    SWARM: "swarm-f014"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+### p-eu-f015 stacks
+
+demo-01-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-01"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+demo-02-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-02"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+demo-03-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-03"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+demo-sstt-to-prd:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "demo-sstt"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+coremt-to-prd:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "coremt"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+gittis-to-prd:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "gittis"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+hospitality-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "hospitality"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+hotels-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "hotels"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+lloi-to-prd:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "lloi"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+parfois-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "parfois"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+kapitalhunters-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "kapitalhunters"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+calidalia-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "calidalia"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+startec-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "startec"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+mariupizza-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "mariupizza"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+riegosa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "riegosa"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+argodeyfortaleza-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "argodeyfortaleza"
+    SWARM: "swarm-g033"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    VPS_SWARM: "true"
+
+roommate-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "roommate"
+    SWARM: "swarm010"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g007 deploy-to-prd
+ai-to-acc:
+  <<: *deploy-to-acc
+  variables:
+    ENV: "acc"
+    STACK: "ai"
+    SWARM: "swarm-g007"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+  when: manual
+
+
+## vps-eu-g004 swarm-g004
+mbs-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "mbs"
+    SWARM: "swarm-g004"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+## vps-eu-g006 swarm-g006
+ccl-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "ccl"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cassiscafe-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "cassiscafe"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cultivosaraba-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cultivosaraba"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+meta360-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "meta360"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+diagonalmar-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "diagonalmar"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+food-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "food"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+intecoastur-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "intecoastur"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+nobuhotels-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "nobuhotels"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+rijkzwaan-es-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "rijkzwaan-es"
+    SWARM: "swarm-g006"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+  
+
+## vps-eu-g007 swarm-g007
+
+vps-eu-g007-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "vps-eu-g007"
+    SWARM: "swarm-g007"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+minte-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "minte"
+    SWARM: "swarm-g007"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+## vps-eu-g008 swarm-g008
+
+appcc-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "appcc"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cesar-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cesar"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+checkpig-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "checkpig"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+chemco-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "chemco"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+partners-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "partners"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+rest-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "rest"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+retail-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "retail"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+barraganespinar-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "barraganespinar"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+docfactory-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "docfactory"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+prefierotort-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "prefierotort"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+ai-capture-data-to-production:
+  <<: *deploy-to-prd
+  variables:
+    ENV: "prd"
+    STACK: "ai-capture-data"
+    SWARM: "swarm-g008"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+### vps-eu-g009 swarm-g009
+
+angellinares-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "angellinares"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cbre-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cbre"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cc-aenor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cc-aenor"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+evathink-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "evathink"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+  
+galvexsa-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "galvexsa"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+inagroup-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "inagroup"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+kemler-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "kemler"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+picasat-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "picasat"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+sobaosjoselin-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "sobaosjoselin"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+sonnwies-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "sonnwies"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+viscofan-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "viscofan"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+wall57-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "wall57"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+azafraneslallave-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "azafraneslallave"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+rodellasxocolaters-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "rodellasxocolaters"
+    SWARM: "swarm-g009"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+### vps-eu-g010 swarm-g010
+
+alcoin-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "alcoin"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+alfran-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "alfran"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+alquimiaintegral-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "alquimiaintegral"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+andamur-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "andamur"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+bkndagroup-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "bkndagroup"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+botticelli-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "botticelli"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cuellarstone-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cuellarstone"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cynara-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cynara"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+gamsa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "gamsa"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+v4-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "v4"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+pevasa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "pevasa"
+    SWARM: "swarm-g010"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+### vps-eu-g011 swarm-g011
+
+
+labocatelia-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "labocatelia"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+hyde-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "hyde"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+ilunion-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ilunion"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+launion-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "launion"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+pokehouse-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "pokehouse"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+
+ormazabal-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ormazabal"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+axarfruit-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "axarfruit"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+hovima-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "hovima"
+    SWARM: "swarm-g011"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+## vps-eu-g012 swarm-g012
+
+geslim-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "geslim"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+grupoglem-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "grupoglem"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+sercotel-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "sercotel"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+sercotelges-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "sercotelges"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+suavinex-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "suavinex"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+tadeojuan-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "tadeojuan"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+greentastic-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "greentastic"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+biorizon-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "biorizon"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+bresoil-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "bresoil"
+    SWARM: "swarm-g012"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g013 swarm-g013
+
+cermaq-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "cermaq"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cidet-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "cidet"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+garcesfruit-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "garcesfruit"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+grupomaster-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "grupomaster"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+guayaquilcountryclub-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "guayaquilcountryclub"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+megaalimentos-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "megaalimentos"
+    SWARM: "swarm-g013"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+## vps-eu-g014 swarm-g014
+
+pasteleriasmarisa-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "pasteleriasmarisa"
+    SWARM: "swarm-g014"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+panet-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "panet"
+    SWARM: "swarm-g014"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+pastamanias-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "pastamanias"
+    SWARM: "swarm-g014"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+epk-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "epk"
+    SWARM: "swarm-g014"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+tnm-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "tnm"
+    SWARM: "swarm-g014"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+sepalo-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "sepalo"
+    SWARM: "swarm-g014"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g017 swarm-g017
+
+spg-pack-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "spg-pack"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+carglass-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "carglass"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+esripoll-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "esripoll"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+lpw-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "lpw"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+realsporting-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "realsporting"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+creaprint-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "creaprint"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+primaflor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "primaflor"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+handltyrol-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "handltyrol"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+omnilife-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "omnilife"
+    SWARM: "swarm-g017"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g018 swarm-g018
+
+torreoria-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "torreoria"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+fichajes-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "fichajes"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+demo-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "demo"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+manuelita-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "manuelita"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+teccontainer-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "teccontainer"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+seligrat-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "seligrat"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+ld-aromaticos-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ld-aromaticos"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+phg-mkt-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "phg-mkt"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+montiel-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "montiel"
+    SWARM: "swarm-g018"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+    
+
+
+## vps-eu-g019 swarm-g019
+
+marcimex-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "marcimex"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"   
+    DATABASE_ENGINE: "mariadb"
+
+
+sylvanfoods-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "sylvanfoods"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"  
+    DATABASE_ENGINE: "mariadb"
+
+
+greensuperfood-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "greensuperfood"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"  
+    DATABASE_ENGINE: "mariadb"
+
+
+pozuelo-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "pozuelo"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+udg-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "udg"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    
+alimentosprosalud-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "alimentosprosalud"
+    SWARM: "swarm-g019"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+    ## vps-eu-g020 swarm-g020
+
+tempsdeinterior-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "tempsdeinterior"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"   
+    DATABASE_ENGINE: "mariadb"
+
+cualin-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "cualin"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"  
+    DATABASE_ENGINE: "mariadb"
+
+ceva-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ceva"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    
+
+polar-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "polar"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+tintasgreis-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "tintasgreis"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+    
+phg-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "phg"
+    SWARM: "swarm-g020"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+   
+   
+   
+
+## vps-eu-g021 swarm-g021
+
+faccsa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "faccsa"
+    SWARM: "swarm-g021"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+vitro-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "vitro"
+    SWARM: "swarm-g021"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+phglatam-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "phglatam"
+    SWARM: "swarm-g021"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+    ## vps-eu-g023swarm-g023
+
+
+alimiashipyards-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "alimiashipyards"
+    SWARM: "swarm-g023"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+thesamplingsolutions-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "thesamplingsolutions"
+    SWARM: "swarm-g023"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+logifruit-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "logifruit"
+    SWARM: "swarm-g023"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+eficaze-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "eficaze"
+    SWARM: "swarm-g023"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+   ## vps-eu-g023swarm-g024
+
+
+
+
+gbcorporacion-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "gbcorporacion"
+    SWARM: "swarm-g024"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+naturinda-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "naturinda"
+    SWARM: "swarm-g024"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"    
+
+panamericana-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "panamericana"
+    SWARM: "swarm-g024"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g025 swarm-g025
+
+heladosbon-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "heladosbon"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+perupetro-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "perupetro"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+puertasglobales-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "puertasglobales"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+rijkzwaan-mx-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "rijkzwaan-mx"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+taste-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "taste"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+amspec-ma-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "amspec-ma"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+francofurniture-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "francofurniture"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+cleanstar-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "cleanstar"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+magic13brewing-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "magic13brewing"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+factorynine-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "factorynine"
+    SWARM: "swarm-g025"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+    ## vps-eu-g026
+
+
+abg-log-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "abg-log"
+    SWARM: "swarm-g026"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+abg-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "abg"
+    SWARM: "swarm-g026"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+## vps-eu-g027
+
+pikolinos-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "pikolinos"
+    SWARM: "swarm-g027"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+dacsa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "dacsa"
+    SWARM: "swarm-g027"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+aenor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "aenor"
+    SWARM: "swarm-g027"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+transava-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "transava"
+    SWARM: "swarm-g027"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+    ## vps-eu-g028
+
+totcarto-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "totcarto"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+jhayber-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "jhayber"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+bariperfil-barinsa-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "bariperfil-barinsa"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+orbitalia-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "orbitalia"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+aec-aenor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "aec-aenor"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+repsol-aenor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "repsol-aenor"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+
+soldelevante-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "soldelevante"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+elpastor-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "elpastor"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+ganain-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ganain"
+    SWARM: "swarm-g028"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+    ## vps-eu-g030
+
+grupopepe-to-production:
+  <<: *deploy-to-prd-scheduled-LATAM
+  variables:
+    ENV: "prd"
+    STACK: "grupopepe"
+    SWARM: "swarm-g030"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
+    DATABASE_ENGINE: "mariadb"
+
+
+ciabbatta-to-production:
+  <<: *deploy-to-prd-scheduled-EU
+  variables:
+    ENV: "prd"
+    STACK: "ciabbatta"
+    SWARM: "swarm-g030"
+    VPS_SWARM: "true"
+    TRAEFIK_VERSION: "v2"
