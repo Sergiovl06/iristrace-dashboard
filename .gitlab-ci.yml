@@ -5,20 +5,23 @@ stages:
 variables:
   IMAGE: registry.gitlab.iristrace.com/platform/monitor:$CI_COMMIT_REF_SLUG
   IMAGE_LATEST: registry.gitlab.iristrace.com/platform/monitor:latest
-  DOCKER_OPTS: "--add-host=registry.gitlab.iristrace.com:192.168.0.21"
 
 build:
   stage: build
-  image: docker:27
-  services:
-    - docker:27-dind
+  image:
+    name: gcr.io/kaniko-project/executor:v1.23.0-debug
+    entrypoint: [""]
   before_script:
     - echo "192.168.0.21 registry.gitlab.iristrace.com" >> /etc/hosts
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"registry.gitlab.iristrace.com\":{\"auth\":\"$(echo -n $CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD | base64)\"}}}" > /kaniko/.docker/config.json
   script:
-    - docker build -t $IMAGE -t $IMAGE_LATEST .
-    - docker push $IMAGE
-    - docker push $IMAGE_LATEST
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --destination $IMAGE
+      --destination $IMAGE_LATEST
+      --skip-tls-verify
   only:
     - main
 
@@ -27,9 +30,13 @@ deploy:
   image: docker:27
   services:
     - docker:27-dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+    DOCKER_HOST: tcp://docker:2375
   before_script:
     - echo "192.168.0.21 registry.gitlab.iristrace.com" >> /etc/hosts
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - until docker info; do sleep 1; done
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD registry.gitlab.iristrace.com
   script:
     - docker pull $IMAGE_LATEST
     - docker compose -f docker-compose.prod.yml down || true
