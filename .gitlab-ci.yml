@@ -32,12 +32,10 @@ package:image:
     - chmod 700 ~/.ssh ./deploy
     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
     - ssh-keyscan gitlab.iristrace.com >> ~/.ssh/known_hosts
-    - echo "$ANSIBLE_VAULT_PASSWORD" | tr -d '\r' > ~/.vault-password
     - chmod 644 ~/.ssh/known_hosts
   script:
     - cd ./deploy
     - ansible-playbook
-        --vault-password-file=~/.vault-password
         --extra-vars="swarm=$SWARM env=$ENV ci_pipeline_id=$CI_PIPELINE_ID hub_user=$HUB_USER hub_password=$HUB_PASSWORD"
         monitor.yml
         --limit $SWARM
