@@ -5,15 +5,15 @@ stages:
 variables:
   IMAGE: registry.gitlab.iristrace.com/platform/monitor:$CI_COMMIT_REF_SLUG
   IMAGE_LATEST: registry.gitlab.iristrace.com/platform/monitor:latest
+  DOCKER_OPTS: "--add-host=registry.gitlab.iristrace.com:192.168.0.21"
 
 build:
   stage: build
   image: docker:27
   services:
-    - name: docker:27-dind
-      extra_hosts:
-        - "registry.gitlab.iristrace.com:192.168.0.21"
+    - docker:27-dind
   before_script:
+    - echo "192.168.0.21 registry.gitlab.iristrace.com" >> /etc/hosts
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker build -t $IMAGE -t $IMAGE_LATEST .
@@ -26,10 +26,9 @@ deploy:
   stage: deploy
   image: docker:27
   services:
-    - name: docker:27-dind
-      extra_hosts:
-        - "registry.gitlab.iristrace.com:192.168.0.21"
+    - docker:27-dind
   before_script:
+    - echo "192.168.0.21 registry.gitlab.iristrace.com" >> /etc/hosts
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker pull $IMAGE_LATEST
